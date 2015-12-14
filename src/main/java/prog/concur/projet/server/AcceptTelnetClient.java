@@ -1,4 +1,4 @@
-package test;
+package prog.concur.projet.server;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;

@@ -1,4 +1,4 @@
-package test;
+package prog.concur.projet.client;
 
 import java.net.*;
 import java.io.*;
@@ -7,7 +7,7 @@ class TelnetClient
 {
     public static void main(String args[]) throws Exception
     {
-        Socket soc = new Socket("127.0.0.1",3000);
+        Socket soc = new Socket("127.0.0.1",3001);
         String LoginName;
         String Password;
         String Command;
