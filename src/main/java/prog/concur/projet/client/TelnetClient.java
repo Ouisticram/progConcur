@@ -1,47 +1,34 @@
-package test;
+package prog.concur.projet.client;
 
 import java.net.*;
 import java.io.*;
 
-class TelnetClient
+public class TelnetClient
 {
-    public static void main(String args[]) throws Exception
-    {
-        Socket soc = new Socket("127.0.0.1",3000);
-        String LoginName;
-        String Password;
-        String Command;
+	private int port;
+	
+	public TelnetClient(int p){
+		this.port = p;
+		try {
+			this.client();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void client() throws Exception{
+		
+		Socket clientSocket = new Socket("localhost", this.port);		   
+		
+        DataOutputStream dout = new DataOutputStream(clientSocket.getOutputStream());
+        BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         
-        
-        DataInputStream din = new DataInputStream(soc.getInputStream());        
-        DataOutputStream dout = new DataOutputStream(soc.getOutputStream());
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
         System.out.println("Welcome to Telnet Client");
-        System.out.println("Your Credential Please...");
-        System.out.print("Login Name :");
-
-        LoginName = br.readLine();
         
-        System.out.print("Password :");
-        Password = br.readLine();
+        dout.writeBytes("bonjour" + '\n');
         
-        dout.writeUTF(LoginName);
-        dout.writeUTF(Password);
+        System.out.println(inFromServer.readLine());
 
-        if (din.readUTF().equals("ALLOWED"))
-        {
-            do
-            {
-            System.out.print("< Telnet Prompt >");
-            Command = br.readLine();            
-            dout.writeUTF(Command);
-            if(!Command.equals("quit"))
-            {
-                System.out.println(din.readUTF());        
-            }                
-            }while(!Command.equals("quit"));
-        }
-        soc.close();        
-    }
+        clientSocket.close();        
+	}
 }
