@@ -36,9 +36,12 @@
             </goals>
           </execution>
         </executions>
+<<<<<<< HEAD
         <configuration>
           <mainClass>prog.concur.projet.App</mainClass>
         </configuration>
+=======
+>>>>>>> branch 'master' of https://github.com/Ouisticram/progConcur.git
       </plugin>
     </plugins>
   </build>
