@@ -12,7 +12,6 @@ niveau, l’autre utilisant l’API de haut niveau.
 Au démarrage, le serveur lira un fichier de configuration pour déterminer les valeurs des paramètres
 suivants : 
 implémentation à utiliser, 
-nombre maximal de connexions
-simultanées, d
-urée maximale d’inactivité d’une connexion, 
+nombre maximal de connexions simultanées, 
+durée maximale d’inactivité d’une connexion, 
 port d’écoute du serveur.
